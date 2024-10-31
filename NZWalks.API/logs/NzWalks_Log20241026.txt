@@ -1,0 +1,2 @@
+2024-10-26 17:45:58.541 +05:30 [WRN] This is a Warning log
+2024-10-26 17:45:58.574 +05:30 [ERR] This is a Error log
