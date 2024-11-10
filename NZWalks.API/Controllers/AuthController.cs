@@ -79,7 +79,7 @@ namespace NZWalks.API.Controllers
 
                         var response = new LoginResponseDto
                         {
-                            JwtToken = jwtToken
+                            JwtToken=jwtToken
                         };
                         return Ok(response);
                     }

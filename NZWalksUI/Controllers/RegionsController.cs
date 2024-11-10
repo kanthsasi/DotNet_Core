@@ -38,7 +38,8 @@ namespace NZWalksUI.Controllers
 		public IActionResult Add()
 		{
 			return View();
-		} 
+		}
+        [HttpPost]
         public async Task<IActionResult> Add(AddRegionViewModel model)
         {
             var client = httpClientFactory.CreateClient();
@@ -46,14 +47,14 @@ namespace NZWalksUI.Controllers
             var httpRequestMeassage = new HttpRequestMessage()
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("https://localhost:7236/api/regions"),
+                RequestUri = new Uri("https://localhost:7236/api/Region"),
                 Content = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json")
             };
             var httpResponseMeassage = await client.SendAsync(httpRequestMeassage);
             httpResponseMeassage.EnsureSuccessStatusCode();
 
-             var response=await httpResponseMeassage.Content.ReadFromJsonAsync<RegionDto>();
-            if (response is not null)
+             var respose=await httpResponseMeassage.Content.ReadFromJsonAsync<RegionDto>();
+            if (respose is not null)
             {
                 return RedirectToAction("Index", "Regions");
             }

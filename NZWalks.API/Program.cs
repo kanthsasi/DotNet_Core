@@ -71,6 +71,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalksConnectio
 builder.Services.AddDbContext<NZWalksAuthDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalksAuthConnectionString")));
 
+
 //For RegionRepository
 
 builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
@@ -109,6 +110,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredUniqueChars = 1;
 });
 
+//JWT Authentication Setup
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
