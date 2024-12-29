@@ -21,6 +21,7 @@ namespace NZWalksUI.Controllers
             try
             {
                 //Get All Regions From The Web API
+               
                 var client = httpClientFactory.CreateClient();
                 var httpResponseMeassage = await client.GetAsync("https://localhost:7236/api/Region");
                 httpResponseMeassage.EnsureSuccessStatusCode();

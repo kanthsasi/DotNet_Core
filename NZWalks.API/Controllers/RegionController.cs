@@ -96,7 +96,7 @@ namespace NZWalks.API.Controllers
         //PUT:http://localhost:portnumber/api/region/{id}
         [HttpPut]
         [Route("{id:Guid}")]
-        [Authorize(Roles = "Writer")]
+       [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateRegionRequestDTO updateRegionRequestDTO)
         {
             //Map DTO to Domain Model
@@ -118,7 +118,7 @@ namespace NZWalks.API.Controllers
         //Delete:http://localhost:portnumber/api/regions/{id}
         [HttpDelete]
         [Route("{id:Guid}")]
-       //[Authorize(Roles = "Writer")]
+       [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             //var regionDomainModel= await dBContext.Regions.FirstOrDefaultAsync(x => x.Id == id);
